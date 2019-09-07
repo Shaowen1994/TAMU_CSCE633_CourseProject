@@ -1,1 +1,1 @@
-Course projects I have done in TAMU.
+Course projects for CSCE_633 Machine Learning.

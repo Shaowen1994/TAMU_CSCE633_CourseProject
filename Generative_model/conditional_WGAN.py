@@ -43,9 +43,9 @@ if not os.path.exists(check_path):
 sample_path = 'Generated_Samples/'
 if not os.path.exists(sample_path):
     os.mkdir(sample_path)
-g_im_path = 'Generated_Images/'
-if not os.path.exists(g_im_path):
-    os.mkdir(g_im_path)
+#g_im_path = 'Generated_Images/'
+#if not os.path.exists(g_im_path):
+#    os.mkdir(g_im_path)
 
 #IS_file = open('Inception_scores','w')
 #IS_file.close()
@@ -217,7 +217,7 @@ disc_train_op = tf.train.AdamOptimizer(learning_rate=1e-4, beta1=0.5, beta2=0.9)
 def generate_image(epoch,label): # Modified
     samples = session.run(fake_data,feed_dict={real_inputs_label:label}) # Modified
     samples_r = ((samples+1.)*(255./2)).astype('int32') # Modified
-    lib.save_images.save_images(samples_r.reshape((BATCH_SIZE, 3, IMAGE_DIM, IMAGE_DIM)),g_im_path + 'samples_{}.jpg'.format(epoch))
+#    lib.save_images.save_images(samples_r.reshape((BATCH_SIZE, 3, IMAGE_DIM, IMAGE_DIM)),g_im_path + 'samples_{}.jpg'.format(epoch))
     #return samples.reshape((BATCH_SIZE, 3, IMAGE_DIM, IMAGE_DIM)) # Modified
     return samples,samples_r.reshape((BATCH_SIZE, IMAGE_DIM, IMAGE_DIM, 3)) # Modified    
 

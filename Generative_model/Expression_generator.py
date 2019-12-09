@@ -22,6 +22,9 @@ Expression = sys.argv[2]
 Amount = sys.argv[3]
 Result_path = sys.argv[4]
 
+while Check_point.endswith('.'):
+    Check_point = Check_point[:-1]
+
 Epoch = Check_point.split('/')[-1].split('_')[1]
 
 if not Result_path.endswith('/'):
@@ -37,7 +40,6 @@ DATA_DIR = '' # Path of the real data
 DIM = 64 # Channel dimension 
 LAMBDA = 10 # Gradient penalty lambda hyperparameter
 CRITIC_ITERS = 5 # How many critic iterations per generator iteration
-BATCH_SIZE = 64 # Batch size
 ITERS = 20000 # How many generator iterations to train for
 OUTPUT_DIM = 30000 # Number of pixels (3*100*100)
 IMAGE_DIM = 100
@@ -117,8 +119,8 @@ def Generator(n_samples, condition, kind='concat', noise=None): # Modified
 
 ################################# Loss Functions ####################################
 
-real_inputs_label = tf.placeholder(tf.float32, shape=[BATCH_SIZE, label_len]) # Modified
-fake_data = Generator(BATCH_SIZE,real_inputs_label) # Modified
+real_inputs_label = tf.placeholder(tf.float32, shape=[int(Amount), label_len]) # Modified
+fake_data = Generator(int(Amount),real_inputs_label) # Modified
 
 ################### Training and evaluation functions ###############################
 
@@ -127,8 +129,7 @@ fake_data = Generator(BATCH_SIZE,real_inputs_label) # Modified
 def generate_image(label): # Modified
     samples = session.run(fake_data,feed_dict={real_inputs_label:label}) # Modified
     samples_r = ((samples+1.)*(255./2)).astype('int32') # Modified
-    #return samples.reshape((BATCH_SIZE, 3, IMAGE_DIM, IMAGE_DIM)) # Modified
-    return samples_r.reshape((BATCH_SIZE, IMAGE_DIM, IMAGE_DIM, 3)) # Modified    
+    return samples_r.reshape((int(Amount), IMAGE_DIM, IMAGE_DIM, 3)) # Modified    
 
 ################################# Training Process ##################################
 
@@ -138,6 +139,6 @@ with tf.Session() as session:
 
     saver.restore(session,Check_point)
 
-    samples = generate_samples(f_batch)
+    samples = generate_image(f_batch)
 
     np.save(Result_path + Expression + '_' + Epoch + '_' + Amount,samples)

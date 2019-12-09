@@ -2,6 +2,8 @@
 
 ## Abstract
 
+While image recognition and generation have been developed for several years and gotten great breakthrough in many areas, facial expression related models have been less touched due to the data complexity and limited benchmark datasets. Based on a novel database RAF-DB, we applied a popular discriminative model, the VGG-net to recognize the expressions so as to see the discrimination of different expressions. We then learned a low dimensional representation for each facial expression and developed a conditional architecture for generative adversarial networks. Our generative model can learn the conditional distribution of the expressions by taking the representations as the input and successfully generate fake images for each condition.
+
 ***
 
 ## Pre-requisite 

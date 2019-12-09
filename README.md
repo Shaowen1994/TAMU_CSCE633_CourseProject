@@ -2,14 +2,20 @@
 
 ## Abstract
 
+***
 
 ## Pre-requisite 
 
-*** Keras
-
+**NumPy**
+**SciPy**
+**Matplotlib**
+**Keras**
+**Tensorflow**
 
 
 ## Data
+
+
 
 ## Discriminative Model
 

@@ -23,7 +23,31 @@ For this project we applied the RAF-DB. To download the dataset, please follow t
 ***
 
 ## Discriminative Model
+We choose VGG16 as our discriminative model. To instanstiate the VGG16 architecture.
+The input data is in folder `/images/aligned` and resize them to 160\*160 as input data
 
+To provide a pre-trained VGG16 model, `VGG16_MODEL=tf.keras.applications.VGG16(input_shape=IMG_SHAPE,include_top=False,weights='imagenet')`
+
+Parameters:<br> 
+1. `include_top`: whether to include the 3 fully-connected layers at the top of the network.<br>
+2. `weights`: one of `None` (random initialization), 'imagenet' (pre-training on ImageNet)<br>
+3. `pooling`: Optional pooling mode for feature extraction<br>
+
+Compile the model and train it 
+```python
+model.compile(optimizer=tf.train.AdamOptimizer(), 
+              loss=tf.keras.losses.sparse_categorical_crossentropy,
+              metrics=["accuracy"])
+history = model.fit(train_ds,
+                    epochs=100, 
+                    steps_per_epoch=2,
+                    validation_steps=2,
+                    validation_data=validation_ds)
+```
+Parameters:<br> 
+1. `optimizer`: String (name of optimizer) or optimizer instance<br>
+2. `loss`: String (name of objective function) or objective function or Loss instance<br>
+3. `metrics`:  List of metrics to be evaluated by the model during training and testing<br>         
 ***
 
 ## Representation learning

@@ -52,6 +52,10 @@ python Expression_generator.py  <checkpoint path>  <expression>  <sample amount>
 
 ## Generated Examples
 
+Examples of generated samples:
+
+![samples](/g_samples.png)
+
 ## Main References
 \[1\] [Reliable Crowdsourcing and Deep Locality-Preserving Learning for Expression
 Recognition in the Wild](http://openaccess.thecvf.com/content_cvpr_2017/papers/Li_Reliable_Crowdsourcing_and_CVPR_2017_paper.pdf)

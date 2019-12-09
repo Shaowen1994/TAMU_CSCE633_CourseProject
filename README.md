@@ -16,13 +16,39 @@
 
 ## Data
 
+For this project we applied the RAF-DB. To download the dataset, please follow the link http://whdeng.cn/RAF/model1.html and contact the group of reference 1. After downloading the dataset, move the folder "basic/" inside the folder "Data/" in our repository to run our code.
 
+***
 
 ## Discriminative Model
 
+***
+
 ## Representation learning
 
+Go to the "Data/" folder. Open and follow the "Data_PreProcess.ipynb" file for data process. Open and follow the "Cov_AutoEncoder.ipynb" file to train the convolutional Autoencoder and applied PCA to get the expression represenations.
+
+***
+
 ## Generative Model 
+
+Go to the "Generative_model" foler. To train the cWGAN, run 
+
+```
+python conditional_WGAN.py
+```
+
+After training process (have already recorded some checkpoints), to generate samples for the certain expression, run
+
+```
+python Expression_generator.py  <checkpoint path>  <expression>  <sample amount> <sample path>
+```
+* checkpoint path: the relative path of the check point files on which you want to generate samples.
+* expression: "Surprise", "Fear", "Disgust", "Happiness", "Sadness", "Anger" or "Neutral".
+* sample amonut: the number of samples you want generate.
+* sample path: the path of the folder where you want to record the samples.
+
+***
 
 ## Generated Examples
 

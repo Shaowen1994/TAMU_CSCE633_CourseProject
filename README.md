@@ -6,12 +6,13 @@
 
 ## Pre-requisite 
 
-**NumPy**
-**SciPy**
-**Matplotlib**
-**Keras**
-**Tensorflow**
+* **NumPy**
+* **SciPy**
+* **Matplotlib**
+* **Keras**
+* **Tensorflow**
 
+***
 
 ## Data
 

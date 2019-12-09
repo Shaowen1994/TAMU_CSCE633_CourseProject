@@ -43,10 +43,10 @@ After training process (have already recorded some checkpoints), to generate sam
 ```
 python Expression_generator.py  <checkpoint path>  <expression>  <sample amount> <sample path>
 ```
-* checkpoint path: the relative path of the check point files on which you want to generate samples.
-* expression: "Surprise", "Fear", "Disgust", "Happiness", "Sadness", "Anger" or "Neutral".
-* sample amonut: the number of samples you want generate.
-* sample path: the path of the folder where you want to record the samples.
+* **checkpoint path**: the relative path of the check point files on which you want to generate samples.
+* **expression**: "Surprise", "Fear", "Disgust", "Happiness", "Sadness", "Anger" or "Neutral".
+* **sample amonut**: the number of samples you want generate.
+* **sample path**: the path of the folder where you want to record the samples.
 
 ***
 
